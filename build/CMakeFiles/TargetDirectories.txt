@@ -1,0 +1,4 @@
+/home/papan2/POS-semestralka/build/CMakeFiles/main.dir
+/home/papan2/POS-semestralka/build/CMakeFiles/server.dir
+/home/papan2/POS-semestralka/build/CMakeFiles/edit_cache.dir
+/home/papan2/POS-semestralka/build/CMakeFiles/rebuild_cache.dir
