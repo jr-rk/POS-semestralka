@@ -1,18 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <pthread.h>
-#include <unistd.h>
-#include <stdbool.h>
-#include <fcntl.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <unistd.h>
-#include <string.h>
-
-#include <stdio.h>
-#include "initData.h"
-#include "shared_memory.h"
-
+#include "server.h"
 
 //zatial nastavim tieto hodnoty rucne
 #define MOVE_UP " ^^ "
@@ -25,51 +11,6 @@
 #define CENTER_WORLD " SS "
 #define MAX_STEPS 30
 
-
-typedef struct Object {
-    int x;
-    int y;
-    int direction;
-  }Object;
-
-typedef struct WalkerState {
-    int x;
-    int y;
-    //int direction; //kde sa pomohol -> 0 - up | 1 - down | 2 - right | 3 - left sluzi pre kreslenie trajektorie chodca
-    int step;
-    bool centerReached;
-    Object trajectory[MAX_STEPS];
-} WalkerState;
-
-typedef struct SimulationState {
-    int world_width_;
-    int world_height_;
-    int max_steps_; //hodnota K
-    double probabilities[4]; // 0 - up | 1 - down | 2 - right | 3 - left
-    int num_replications;
-    bool obstaclesAllowed;
-    bool interactive_mode;
-    bool summary_mode;
-    int obstacleCount;
-    char ***world;
-    double **prob_world;
-    Object *obstacles;
-    WalkerState *walker;
-} SimulationState;
-
-// char* pridaj_kluc_na_koniec(char* input, int kluc) {
-//     int input_len = strlen(input);
-//     char* result = (char*)malloc(input_len + 4); //
-//
-//     if (result == NULL) {
-//         printf("Chyba pri alokácii pamäte.\n");
-//         exit(1);
-//     }
-//     strcpy(result, input);
-//     snprintf(result + input_len, 4, "%03d", kluc);
-//     return result;
-// }
-
 void init_walker(WalkerState *walker) {
     walker->centerReached = false;
     walker->step = 0;
@@ -79,10 +20,12 @@ void init_walker(WalkerState *walker) {
 
 char* get_direction(int direction) {
     char* result = malloc(5*sizeof(char));
+
     if (!result) {
         perror("allocation failed");
         exit(EXIT_FAILURE);
     }
+
     switch (direction) {
         case 0: strcpy(result, MOVE_RIGHT); break;
         case 1: strcpy(result, MOVE_LEFT); break;
@@ -90,6 +33,7 @@ char* get_direction(int direction) {
         case 3: strcpy(result, MOVE_UP); break;
         default: strcpy(result, SPACE); break;
     }
+
     return result;
 }
 
@@ -304,7 +248,7 @@ void print_world(SimulationState *state) {
     }
 }
 
-int choose_direction(double probabilities[], int size) {
+int choose_direction(double const probabilities[], int size) {
     double random_number = ((double) rand() / (double) RAND_MAX);
     double cumulative = 0.0;
     for (int i = 0; i < size; i++) {
@@ -720,7 +664,7 @@ void create_new_simulation(char *argv[]) {
     }
 }
 
-int connect_to_existing_simulation( char *argv[]) {
+int connect_to_existing_simulation(char *argv[]) {
     pid_t pid = fork();
 
     if (pid < 0) {
