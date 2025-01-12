@@ -248,7 +248,7 @@ void print_world(SimulationState *state) {
     }
 }
 
-int choose_direction(double const probabilities[], int size) {
+int choose_direction(const double probabilities[], int size) {
     double random_number = ((double) rand() / (double) RAND_MAX);
     double cumulative = 0.0;
     for (int i = 0; i < size; i++) {
@@ -257,6 +257,7 @@ int choose_direction(double const probabilities[], int size) {
             return i;
         }
     }
+    return 0;
 }
 
 void single_walk(SimulationState *state ,int start_x, int start_y) {

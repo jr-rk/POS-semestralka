@@ -78,7 +78,7 @@ void destroy_simulation(SimulationState *state);
 
 void print_world(SimulationState *state);
 
-int choose_direction(double const probabilities[], int size);
+int choose_direction(const double probabilities[], int size);
 
 void single_walk(SimulationState *state ,int start_x, int start_y);
 
