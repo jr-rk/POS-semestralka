@@ -21,7 +21,4 @@ void print_world_client(sharedData *state);
 
 void print_usage(const char *prog_name);
 
-int main(int argc, char *argv[]);
-
-
 #endif // !CLIENT
