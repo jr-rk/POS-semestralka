@@ -133,7 +133,7 @@ void place_obstacle(SimulationState *state) {
     update_world(state);
 }
 
-void init_simulation(SimulationState *state, WalkerState *walker, initData *data) {
+void init_simulation(SimulationState *state, WalkerState *walker, InitData *data) {
     state->world = malloc(data->width * sizeof(char **));
     if (state->world == NULL) {
         fprintf(stderr, "Allocation failed for world\n");
@@ -363,7 +363,7 @@ bool is_obstacle(SimulationState *state, int x, int y) {
     return false; //prekazka neni na suradniciach (x, y)
 }
 
-void shared_memory_write(SimulationState *state, sharedData *data, int walker_x, int walker_y, int current_rep, int done) {
+void shared_memory_write(SimulationState *state, SharedData *data, int walker_x, int walker_y, int current_rep, int done) {
     //update grid_interaktive|summary, obstaclesAllowed, x, y walker, current_rep
     if (state->interactive_mode) {
         for (int x = 0; x < state->world_width_; x++) {
@@ -391,7 +391,7 @@ void shared_memory_write(SimulationState *state, sharedData *data, int walker_x,
     data->done = done;
 }
 
-void simulate_walk(SimulationState *state, sharedData *shm_data) {
+void simulate_walk(SimulationState *state, SharedData *shm_data) {
     //otvaranie semaforov
     sem_t *sem_write = sem_open(SEM_WRITE, O_CREAT, 0644, 1); // Semafor pre zápis
     sem_t *sem_read = sem_open(SEM_READ, O_CREAT, 0644, 0);  // Semafor pre čítanie
@@ -458,7 +458,7 @@ void simulate_walk(SimulationState *state, sharedData *shm_data) {
 
 
 
-void calculate_probability_to_reach_center(SimulationState *state, sharedData *shm_data) {
+void calculate_probability_to_reach_center(SimulationState *state, SharedData *shm_data) {
     //otvaranie semaforov
     sem_t *sem_write = sem_open(SEM_WRITE, O_CREAT, 0644, 1); // Semafor pre zápis
     sem_t *sem_read = sem_open(SEM_READ, O_CREAT, 0644, 0);  // Semafor pre čítanie
@@ -606,8 +606,8 @@ void create_new_simulation(char *argv[]) {
         }
 
         // Čítanie údajov zo štruktúry - fifo
-        initData data_fifo;
-        if (read(fifo_fd, &data_fifo, sizeof(initData)) != sizeof(initData)) {
+        InitData data_fifo;
+        if (read(fifo_fd, &data_fifo, sizeof(InitData)) != sizeof(InitData)) {
             perror("read");
             exit(1);
         }
@@ -621,13 +621,13 @@ void create_new_simulation(char *argv[]) {
         }
 
         // Nastavenie veľkosti zdieľanej pamäti
-        if (ftruncate(shm_fd, sizeof(sharedData)) == -1) {
+        if (ftruncate(shm_fd, sizeof(SharedData)) == -1) {
             perror("ftruncate failed 1");
             exit(1);
         }
 
         // Pripojenie zdieľanej pamäti
-        sharedData *shm_data = (sharedData *)mmap(NULL, sizeof(sharedData), PROT_READ | PROT_WRITE, MAP_SHARED, shm_fd, 0);
+        SharedData *shm_data = (SharedData *)mmap(NULL, sizeof(SharedData), PROT_READ | PROT_WRITE, MAP_SHARED, shm_fd, 0);
         if (shm_data == MAP_FAILED) {
             perror("mmap failed 1");
             exit(1);
@@ -659,7 +659,7 @@ void create_new_simulation(char *argv[]) {
 
         close(fifo_fd);
         unlink(FIFO_NAME);
-        munmap(shm_data, sizeof(sharedData));
+        munmap(shm_data, sizeof(SharedData));
         close(shm_fd);
         shm_unlink(SHM_NAME);
     }

@@ -1,6 +1,5 @@
-// server.h
-#ifndef SERVER
-#define SERVER
+#ifndef SERVER_H
+#define SERVER_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -72,7 +71,7 @@ void update_world(SimulationState *state);
 
 void place_obstacle(SimulationState *state);
 
-void init_simulation(SimulationState *state, WalkerState *walker, initData *data);
+void init_simulation(SimulationState *state, WalkerState *walker, InitData *data);
 
 void destroy_simulation(SimulationState *state);
 
@@ -84,11 +83,11 @@ void single_walk(SimulationState *state ,int start_x, int start_y);
 
 bool is_obstacle(SimulationState *state, int x, int y);
 
-void shared_memory_write(SimulationState *state, sharedData *data, int walker_x, int walker_y, int current_rep, int done);
+void shared_memory_write(SimulationState *state, SharedData *data, int walker_x, int walker_y, int current_rep, int done);
 
-void simulate_walk(SimulationState *state, sharedData *shm_data);
+void simulate_walk(SimulationState *state, SharedData *shm_data);
 
-void calculate_probability_to_reach_center(SimulationState *state, sharedData *shm_data);
+void calculate_probability_to_reach_center(SimulationState *state, SharedData *shm_data);
 
 void zapis_do_suboru(SimulationState *state);
 
@@ -98,5 +97,4 @@ void create_new_simulation(char *argv[]);
 
 int connect_to_existing_simulation( char *argv[]);
 
-
-#endif // !SERVER
+#endif // !SERVER_H

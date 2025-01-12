@@ -1,6 +1,5 @@
-// client.h
-#ifndef CLIENT
-#define CLIENT
+#ifndef CLIENT_H
+#define CLIENT_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -17,8 +16,8 @@
 #include "sharedData.h"
 
 
-void print_world_client(sharedData *state);
+void print_world_client(SharedData *state);
 
 void print_usage(const char *prog_name);
 
-#endif // !CLIENT
+#endif // !CLIENT_H

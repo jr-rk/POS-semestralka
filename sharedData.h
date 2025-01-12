@@ -1,3 +1,7 @@
+#ifndef SHARED_DATA_H
+#define SHARED_DATA_H
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -7,9 +11,6 @@
 #include <fcntl.h>
 #include <semaphore.h>
 #include <string.h>
-
-#ifndef SHARED_DATA
-#define SHARED_DATA
 
 #define MAX_WIDTH 20
 #define MAX_HEIGHT 20
@@ -21,7 +22,8 @@
 #define WRITER_EXEC "./server"
 #define READER_EXEC "./client"
 
-typedef struct sharedData {
+
+typedef struct SharedData {
     char grid[MAX_WIDTH][MAX_HEIGHT][5];           // Hlavná mriežka
     char grid_prob[MAX_WIDTH][MAX_HEIGHT][5];      // Pravdepodobnosti
     int obstaclesAllowed;                          // Povolené prekážky
@@ -35,6 +37,6 @@ typedef struct sharedData {
     int done;
     int readers_active;
     int server_active;
-} sharedData;
+} SharedData;
 
-#endif //SHARED_DATA
+#endif //SHARED_DATA_H

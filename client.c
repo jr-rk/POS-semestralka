@@ -1,7 +1,7 @@
 #include "client.h"
 
 
-void print_world_client(sharedData *state) {
+void print_world_client(SharedData *state) {
     printf("     ");
     for (int j = 0; j < state->height; j++) {
         if (j < 10) {
@@ -90,7 +90,7 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    initData init_Data;
+    InitData init_Data;
     init_Data.width = world_width;
     init_Data.height = world_height;
     init_Data.max_steps = max_steps;
@@ -109,7 +109,7 @@ int main(int argc, char *argv[]) {
     }
 
     // Zápis údajov do FIFO
-    if (write(fifo_fd, &init_Data, sizeof(initData)) != sizeof(initData)) {
+    if (write(fifo_fd, &init_Data, sizeof(InitData)) != sizeof(InitData)) {
         perror("write");
         exit(1);
     }
@@ -149,7 +149,7 @@ int main(int argc, char *argv[]) {
             return 1;
         }
 
-        initData init_Data1;
+        InitData init_Data1;
         init_Data1.width = world_width;
         init_Data1.height = world_height;
         init_Data1.max_steps = max_steps;
@@ -168,7 +168,7 @@ int main(int argc, char *argv[]) {
         }
 
         // Zápis údajov do FIFO
-        if (write(fifo_fd1, &init_Data1, sizeof(initData)) != sizeof(initData)) {
+        if (write(fifo_fd1, &init_Data1, sizeof(InitData)) != sizeof(InitData)) {
             perror("write");
             exit(1);
         }
@@ -207,7 +207,7 @@ int main(int argc, char *argv[]) {
     }
 
     // Pripojenie zdieľanej pamäti
-    sharedData *shm_data = (sharedData *)mmap(NULL, sizeof(sharedData), PROT_READ | PROT_WRITE, MAP_SHARED, shm_fd, 0);
+    SharedData *shm_data = (SharedData *)mmap(NULL, sizeof(SharedData), PROT_READ | PROT_WRITE, MAP_SHARED, shm_fd, 0);
     if (shm_data == MAP_FAILED) {
         perror("mmap failed 3");
         exit(1);
@@ -285,7 +285,7 @@ int main(int argc, char *argv[]) {
         }
     }
     //odpojenie a odstranenie
-    munmap(shm_data, sizeof(sharedData));
+    munmap(shm_data, sizeof(SharedData));
     close(shm_fd);
     sem_close(sem_write);
     sem_close(sem_read);
