@@ -73,7 +73,7 @@ CMakeFiles/server.dir/server.c.o: /home/roka/POS-semestralka/server.c \
  /usr/include/x86_64-linux-gnu/bits/struct_stat.h \
  /usr/include/x86_64-linux-gnu/sys/stat.h /usr/include/string.h \
  /usr/include/strings.h /home/roka/POS-semestralka/initData.h \
- /home/roka/POS-semestralka/shared_memory.h \
+ /home/roka/POS-semestralka/sharedData.h \
  /usr/include/x86_64-linux-gnu/sys/mman.h \
  /usr/include/x86_64-linux-gnu/bits/mman.h \
  /usr/include/x86_64-linux-gnu/bits/mman-map-flags-generic.h \

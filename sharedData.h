@@ -1,6 +1,3 @@
-//
-// Created by maros on 10. 1. 2025.
-//
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -11,8 +8,8 @@
 #include <semaphore.h>
 #include <string.h>
 
-#ifndef SHARED_MEMORY_H
-#define SHARED_MEMORY_H
+#ifndef SHARED_DATA
+#define SHARED_DATA
 
 #define MAX_WIDTH 20
 #define MAX_HEIGHT 20
@@ -40,4 +37,4 @@ typedef struct sharedData {
     int server_active;
 } sharedData;
 
-#endif //SHARED_MEMORY_H
+#endif //SHARED_DATA

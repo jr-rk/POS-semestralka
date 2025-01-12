@@ -101,7 +101,7 @@ CMakeFiles/client.dir/client.c.o: /home/roka/POS-semestralka/client.c \
  /usr/include/x86_64-linux-gnu/bits/types/idtype_t.h \
  /usr/include/x86_64-linux-gnu/sys/stat.h \
  /home/roka/POS-semestralka/initData.h \
- /home/roka/POS-semestralka/shared_memory.h \
+ /home/roka/POS-semestralka/sharedData.h \
  /usr/include/x86_64-linux-gnu/sys/ipc.h \
  /usr/include/x86_64-linux-gnu/bits/ipctypes.h \
  /usr/include/x86_64-linux-gnu/bits/ipc.h \

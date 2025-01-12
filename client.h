@@ -14,7 +14,7 @@
 #include <sys/stat.h>
 
 #include "initData.h"
-#include "shared_memory.h"
+#include "sharedData.h"
 
 
 void print_world_client(sharedData *state);
