@@ -132,11 +132,12 @@ int main(int argc, char *argv[]) {
                 for (int t = 0; t < num_replicas; t++) {
                     sem_wait(sem_read); //server moze spracovat data
                     //vykreslenie data
-                    printf("Chodec zacal na suradniciach: [%d, %d] \n", shm_data->walker_x, shm_data->walker_y);
+                    printf("Chodec zacal na suradniciach: [%d, %d] ", shm_data->walker_x, shm_data->walker_y);
                     printf("Replikacia c. : %d ", shm_data->current_rep);
                     print_world_client(shm_data);
                     sem_post(sem_write);
 
+                    sleep(1);
                 }
             }
         }
@@ -145,10 +146,11 @@ int main(int argc, char *argv[]) {
             for (int y = 0; y < shm_data->height; y++) {
                 sem_wait(sem_read); //server moze spracovat data
                 //vykreslenie data
-                printf("Pravdepodobnost ze chodec dojde do ciela z suradnic: [%d, %d] \n", shm_data->walker_x, shm_data->walker_y);
+                printf("Pravdepodobnost ze chodec dojde do ciela z suradnic: [%d, %d]", shm_data->walker_x, shm_data->walker_y);
                 print_world_client(shm_data);
                 sem_post(sem_write);
 
+                sleep(1);
             }
         }
     }

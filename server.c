@@ -455,7 +455,7 @@ void simulate_walk(SimulationState *state, sharedData *shm_data) {
                     shared_memory_write(state, shm_data, y, x, t);
                     sem_post(sem_read);
 
-                    //sleep(1);
+                    sleep(1);
                 }
             }
             else {
@@ -483,9 +483,10 @@ void calculate_probability_to_reach_center(SimulationState *state, sharedData *s
     int center_y = state->world_height_ / 2;
     for (int x = 0; x < state->world_width_; x++) {
         for (int y = 0; y < state->world_height_; y++) {
-            sem_wait(sem_write);
+
             //aby nerobil replikacie tam kde su prekazky a stred
              if (!is_obstacle(state, x, y) && !(x == center_x && y == center_y)) {
+                 sem_wait(sem_write);
                 int succesful_reaches_center = 0;
 
                 for (int t = 0; t < state->num_replications; t++) {
@@ -505,7 +506,7 @@ void calculate_probability_to_reach_center(SimulationState *state, sharedData *s
                  shared_memory_write(state, shm_data, y, x, 0);
                  sem_post(sem_read);
 
-                 //sleep(1);
+                 sleep(1);
             } else {
                 printf("Preskakuje sa bod [%d][%d], pretoze je to prekazka.\n", x, y);
             }
