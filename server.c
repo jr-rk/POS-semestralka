@@ -575,9 +575,9 @@ void zapis_do_suboru(SimulationState *state) {
 void print_usage(const char *prog_name) {
   printf("Pouzitie: %s <moznost>\n", prog_name);
   printf("Moznosti:\n");
-  printf("  1  Vytvorenie novej simulacie\n");
-  printf("  2  Pripojit sa k existujucej\n");
-  printf("  3 <cesta k suboru> Nacitat simulaciu zo suboru\n");
+  printf("  1                  | Vytvorenie novej simulacie\n");
+  printf("  2                  | Pripojit sa k existujucej simulacii\n");
+  printf("  3 <cesta k suboru> | Nacitat simulaciu zo suboru\n");
 }
 
 void create_new_simulation(char *argv[]) {
@@ -687,6 +687,12 @@ int connect_to_existing_simulation(char *argv[]) {
 }
 
 int main(int argc, char *argv[]) {
+
+  if (argc == 1) { 
+    fprintf(stderr, "Nezadal si ziadny argument \n");
+    print_usage(argv[0]);
+    return 1;
+  }
 
   if (argc > 3) {
     fprintf(stderr, "Error: Too many arguments\n");

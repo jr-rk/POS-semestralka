@@ -194,9 +194,11 @@ int main(int argc, char *argv[]) {
   }
   if (sem_read == SEM_FAILED) {
     perror("Semafor otvorenie zlyhalo 3 read");
+    return 1;
   }
   if (sem_mutex == SEM_FAILED) {
     perror("Semafor mutex v clientovy otvorenie zlyhalo 3 read");
+    return 1;
   }
 
   // Pripojenie k zdieľanej pamäti
