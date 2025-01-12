@@ -22,7 +22,7 @@
 #define SEM_WRITE "/sem_write__0007"
 #define SEM_MUTEX "/sem_mutex__0007"
 #define WRITER_EXEC "./server"
-#define READER_EXEC "./main"
+#define READER_EXEC "./client"
 
 typedef struct sharedData {
     char grid[MAX_WIDTH][MAX_HEIGHT][5];           // Hlavná mriežka

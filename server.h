@@ -17,6 +17,7 @@
 #include "initData.h"
 #include "shared_memory.h"
 
+
 //nastavenie hodnot
 #define MOVE_UP " ^^ "
 #define MOVE_DOWN " VV "

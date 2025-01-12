@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/roka/POS-semestralka/main.c" "CMakeFiles/main.dir/main.c.o" "gcc" "CMakeFiles/main.dir/main.c.o.d"
+  "/home/roka/POS-semestralka/client.c" "CMakeFiles/client.dir/client.c.o" "gcc" "CMakeFiles/client.dir/client.c.o.d"
   )
 
 # Targets to which this target links.
