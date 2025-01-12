@@ -4,7 +4,7 @@
 # compile C with /usr/bin/cc
 C_DEFINES = 
 
-C_INCLUDES = -I/home/papan2/POS-semestralka
+C_INCLUDES = -I/home/roka/POS-semestralka
 
-C_FLAGS = -std=gnu11
+C_FLAGS = -g -std=gnu11
 

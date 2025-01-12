@@ -1,5 +1,6 @@
-CMakeFiles/server.dir/server.c.o: /home/papan2/POS-semestralka/server.c \
- /usr/include/stdc-predef.h /usr/include/stdio.h \
+CMakeFiles/server.dir/server.c.o: /home/roka/POS-semestralka/server.c \
+ /usr/include/stdc-predef.h /home/roka/POS-semestralka/server.h \
+ /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
@@ -71,8 +72,8 @@ CMakeFiles/server.dir/server.c.o: /home/papan2/POS-semestralka/server.c \
  /usr/include/x86_64-linux-gnu/bits/stat.h \
  /usr/include/x86_64-linux-gnu/bits/struct_stat.h \
  /usr/include/x86_64-linux-gnu/sys/stat.h /usr/include/string.h \
- /usr/include/strings.h /home/papan2/POS-semestralka/initData.h \
- /home/papan2/POS-semestralka/shared_memory.h \
+ /usr/include/strings.h /home/roka/POS-semestralka/initData.h \
+ /home/roka/POS-semestralka/shared_memory.h \
  /usr/include/x86_64-linux-gnu/sys/mman.h \
  /usr/include/x86_64-linux-gnu/bits/mman.h \
  /usr/include/x86_64-linux-gnu/bits/mman-map-flags-generic.h \

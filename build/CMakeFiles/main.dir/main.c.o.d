@@ -1,4 +1,4 @@
-CMakeFiles/main.dir/main.c.o: /home/papan2/POS-semestralka/main.c \
+CMakeFiles/main.dir/main.c.o: /home/roka/POS-semestralka/main.c \
  /usr/include/stdc-predef.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -99,8 +99,8 @@ CMakeFiles/main.dir/main.c.o: /home/papan2/POS-semestralka/main.c \
  /usr/include/x86_64-linux-gnu/bits/signal_ext.h \
  /usr/include/x86_64-linux-gnu/bits/types/idtype_t.h \
  /usr/include/x86_64-linux-gnu/sys/stat.h \
- /home/papan2/POS-semestralka/initData.h \
- /home/papan2/POS-semestralka/shared_memory.h \
+ /home/roka/POS-semestralka/initData.h \
+ /home/roka/POS-semestralka/shared_memory.h \
  /usr/include/x86_64-linux-gnu/sys/ipc.h \
  /usr/include/x86_64-linux-gnu/bits/ipctypes.h \
  /usr/include/x86_64-linux-gnu/bits/ipc.h \
