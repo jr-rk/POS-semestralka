@@ -14,5 +14,5 @@ typedef struct initData {
     int mode; // 1 interactive | 2 - summary
 } initData;
 
-#define FIFO_NAME "fifo_pipe"
+#define FIFO_NAME "fifo_pipe_3210"
 #endif //INITDATA_H
