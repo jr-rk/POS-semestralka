@@ -1,6 +1,3 @@
-//
-// Created by maros on 10. 1. 2025.
-//
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -11,8 +8,8 @@
 #include <semaphore.h>
 #include <string.h>
 
-#ifndef SHARED_MEMORY_H
-#define SHARED_MEMORY_H
+#ifndef SHARED_DATA
+#define SHARED_DATA
 
 #define MAX_WIDTH 20
 #define MAX_HEIGHT 20
@@ -22,7 +19,7 @@
 #define SEM_WRITE "/sem_write__0007"
 #define SEM_MUTEX "/sem_mutex__0007"
 #define WRITER_EXEC "./server"
-#define READER_EXEC "./main"
+#define READER_EXEC "./client"
 
 typedef struct sharedData {
     char grid[MAX_WIDTH][MAX_HEIGHT][5];           // Hlavná mriežka
@@ -40,4 +37,4 @@ typedef struct sharedData {
     int server_active;
 } sharedData;
 
-#endif //SHARED_MEMORY_H
+#endif //SHARED_DATA

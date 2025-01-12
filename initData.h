@@ -1,9 +1,9 @@
-//
-// Created by maros on 10. 1. 2025.
-//
-
 #ifndef INITDATA_H
 #define INITDATA_H
+
+
+#define FIFO_NAME "fifo_pipe_3210"
+
 typedef struct initData {
     int width;
     int height;
@@ -14,5 +14,4 @@ typedef struct initData {
     int mode; // 1 interactive | 2 - summary
 } initData;
 
-#define FIFO_NAME "fifo_pipe_3210"
 #endif //INITDATA_H

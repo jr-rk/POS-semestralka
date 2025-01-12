@@ -15,7 +15,8 @@
 #include <stdio.h>
 
 #include "initData.h"
-#include "shared_memory.h"
+#include "sharedData.h"
+
 
 //nastavenie hodnot
 #define MOVE_UP " ^^ "

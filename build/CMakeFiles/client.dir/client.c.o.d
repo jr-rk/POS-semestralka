@@ -1,5 +1,6 @@
-CMakeFiles/main.dir/main.c.o: /home/roka/POS-semestralka/main.c \
- /usr/include/stdc-predef.h /usr/include/stdio.h \
+CMakeFiles/client.dir/client.c.o: /home/roka/POS-semestralka/client.c \
+ /usr/include/stdc-predef.h /home/roka/POS-semestralka/client.h \
+ /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
@@ -100,7 +101,7 @@ CMakeFiles/main.dir/main.c.o: /home/roka/POS-semestralka/main.c \
  /usr/include/x86_64-linux-gnu/bits/types/idtype_t.h \
  /usr/include/x86_64-linux-gnu/sys/stat.h \
  /home/roka/POS-semestralka/initData.h \
- /home/roka/POS-semestralka/shared_memory.h \
+ /home/roka/POS-semestralka/sharedData.h \
  /usr/include/x86_64-linux-gnu/sys/ipc.h \
  /usr/include/x86_64-linux-gnu/bits/ipctypes.h \
  /usr/include/x86_64-linux-gnu/bits/ipc.h \
