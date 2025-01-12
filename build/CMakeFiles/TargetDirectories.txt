@@ -1,4 +1,0 @@
-/home/roka/POS-semestralka/build/CMakeFiles/client.dir
-/home/roka/POS-semestralka/build/CMakeFiles/server.dir
-/home/roka/POS-semestralka/build/CMakeFiles/edit_cache.dir
-/home/roka/POS-semestralka/build/CMakeFiles/rebuild_cache.dir
