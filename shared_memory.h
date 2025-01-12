@@ -17,9 +17,12 @@
 #define MAX_WIDTH 20
 #define MAX_HEIGHT 20
 
-#define SHM_NAME "shm_memory"
-#define SEM_READ "/sem_read"
-#define SEM_WRITE "/sem_write"
+#define SHM_NAME "shm_memory__0007"
+#define SEM_READ "/sem_read__0007"
+#define SEM_WRITE "/sem_write__0007"
+#define SEM_MUTEX "/sem_mutex__0007"
+#define WRITER_EXEC "./server"
+#define READER_EXEC "./main"
 
 typedef struct sharedData {
     char grid[MAX_WIDTH][MAX_HEIGHT][5];           // Hlavná mriežka
@@ -31,6 +34,10 @@ typedef struct sharedData {
     int width;
     int height;
     int interactive_mode;
+    int obstacles_count;
+    int done;
+    int readers_active;
+    int server_active;
 } sharedData;
 
 #endif //SHARED_MEMORY_H
