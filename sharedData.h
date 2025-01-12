@@ -24,19 +24,19 @@
 
 
 typedef struct SharedData {
-    char grid[MAX_WIDTH][MAX_HEIGHT][5];           // Hlavná mriežka
-    char grid_prob[MAX_WIDTH][MAX_HEIGHT][5];      // Pravdepodobnosti
-    int obstaclesAllowed;                          // Povolené prekážky
-    int walker_x;                                  // Počiatočná pozícia chodca
-    int walker_y;                                  // Počiatočná pozícia chodca
-    int current_rep;
-    int width;
-    int height;
-    int interactive_mode;
-    int obstacles_count;
-    int done;
-    int readers_active;
-    int server_active;
+  char grid[MAX_WIDTH][MAX_HEIGHT][5];           // Hlavná mriežka
+  char grid_prob[MAX_WIDTH][MAX_HEIGHT][5];      // Pravdepodobnosti
+  int obstaclesAllowed;                          // Povolené prekážky
+  int walker_x;                                  // Počiatočná pozícia chodca
+  int walker_y;                                  // Počiatočná pozícia chodca
+  int current_rep;
+  int width;
+  int height;
+  int interactive_mode;
+  int obstacles_count;
+  int done;
+  int readers_active;
+  int server_active;
 } SharedData;
 
 #endif //SHARED_DATA_H
